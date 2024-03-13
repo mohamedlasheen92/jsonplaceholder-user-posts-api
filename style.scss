@@ -1,0 +1,114 @@
+$blue: #004080;
+$backPost: #9ebfce;
+$backUser: #f0f0f0dc;
+$userColor: #333;
+$mailColor: #666;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: linear-gradient(90deg, rgba(66, 95, 126, 1) 0%, rgba(114, 200, 182, 1) 50%, rgba(62, 128, 114, 1) 100%);
+}
+
+.container {
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  
+  .left {
+
+   .user {
+    font-size: calc(.7rem + .4vw);
+    margin: .5rem 0;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    cursor: pointer;
+
+    background-color: $backUser;
+
+
+    h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      color: $userColor;
+    }
+    p {
+      color: $mailColor;
+      font-style: italic;
+    }
+    &.active {
+      // background-color: darkgoldenrod;
+      background-color: $backPost;
+      border-left: .4rem solid $blue;
+      h3 {
+
+        color: $blue;
+          font-weight: bold;
+      }
+      p {
+        color: $userColor;
+      }
+    }
+   }
+  }
+   .right {
+    flex-grow: 1;
+
+    .post {
+        background-color: $backPost;
+        margin: .5rem 0;
+        padding: 1rem;
+        .title {
+            color: $blue;
+            font-weight: bold;
+            font-size: calc(.9rem + .5vw);
+          }
+          p {
+            color: $userColor;
+          }
+      }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    .left .users {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+      .user {
+        flex-grow: 1;
+        min-width: 30%;
+        padding: .4rem .5rem;
+        margin: 0;
+      }
+    }
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    padding: .5rem;
+    .left .users .user {
+      min-width: 45%;
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  .container .left .users .user {
+      min-width: 90%;
+
+    }
+  
+}
